@@ -1,4 +1,4 @@
-# ingeniero.espacial
+# 🚀 Ingeniero Espacial
 
 🛰️ El espacio explicado desde dentro.
 
