@@ -216,47 +216,44 @@
       .iconBtn{ width: 54px; height: 54px; }
       .logo{ width: 96px; height: 96px; }
     }
-    /* Pills (links redundantes debajo) */
-.pills{
-  width: min(520px, 100%);
-  margin: 18px auto 0;
+    .pills{
+  width: min(560px, 100%);
+  margin: 22px auto 0;
   display:flex;
   flex-direction:column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .pillLink{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap: 12px;
-  padding: 14px 16px;
+  padding: 18px 22px;
   border-radius: 999px;
   text-decoration:none;
-  color: rgba(0,0,0,.92);
-  background: rgba(255,255,255,.92);
-  border: 1px solid rgba(255,255,255,.70);
-  box-shadow: 10px 10px 0 rgba(0,0,0,.72);
-  transition: transform .12s ease, box-shadow .12s ease;
+  background: linear-gradient(180deg, rgba(20,24,40,.92), rgba(12,16,30,.92));
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 18px 45px rgba(0,0,0,.65);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 
 .pillLink:hover{
-  transform: translateY(-1px);
-  box-shadow: 12px 12px 0 rgba(0,0,0,.78);
+  transform: translateY(-3px);
+  box-shadow: 0 26px 60px rgba(0,0,0,.75);
+  background: linear-gradient(180deg, rgba(28,32,55,.95), rgba(18,22,40,.95));
 }
 
 .pillLeft{
   display:flex;
   align-items:center;
-  gap: 12px;
-  min-width:0;
+  gap: 18px;
 }
 
 .pillIco{
-  width: 34px;
-  height: 34px;
+  width: 52px;
+  height: 52px;
   border-radius: 999px;
-  background: rgba(0,0,0,.08);
+  background: rgba(255,255,255,.08);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -264,42 +261,43 @@
 }
 
 .pillIco svg{
-  width: 18px;
-  height: 18px;
-  fill: rgba(0,0,0,.78);
+  width: 22px;
+  height: 22px;
+  fill: rgba(255,255,255,.88);
 }
 
 .pillText{
   display:flex;
   flex-direction:column;
-  min-width:0;
+  align-items:flex-start;   /* 👈 fuerza alineación izquierda */
 }
 
 .pillText strong{
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: 800;
+  color: rgba(255,255,255,.95);
   line-height: 1.1;
 }
 
 .pillText span{
-  margin-top: 4px;
-  font-size: 12px;
-  opacity: .72;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow: ellipsis;
+  margin-top: 6px;
+  font-size: 16px;
+  color: rgba(255,255,255,.65);
 }
 
 .pillChevron{
-  width: 18px;
-  height: 18px;
-  opacity: .55;
-  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  opacity: .5;
+  fill: rgba(255,255,255,.7);
 }
 
-/* Mobile tuning */
-@media (max-width: 420px){
-  .pills{ width: 100%; }
-  .pillLink{ padding: 13px 14px; }
+/* Mobile */
+@media (max-width: 480px){
+  .pillLink{ padding: 16px 18px; }
+  .pillIco{ width: 46px; height: 46px; }
+  .pillText strong{ font-size: 18px; }
+  .pillText span{ font-size: 14px; }
 }
   </style>
 </head>
@@ -318,9 +316,8 @@
         <h1 class="handle">@ingeniero.espacial</h1>
 
         <p class="bio">
-          Soy JuanPa, y llevo más de 10 años trabajando en la Agencia Espacial Europea 🌍 como ingeniero.<br>
-          He trabajado en varios proyectos científicos de la ESA.<br>
-          Si te gusta la ciencia, la tecnología y la exploración espacial, estás en el lugar correcto 😉.
+          Soy JuanPa, y llevo más de 10 años trabajando en la Agencia Espacial Europea como ingeniero.<br>
+          Si te gusta la ciencia, la tecnología y la exploración espacial, estás en el lugar correcto 😉
         </p>
 
         <nav class="social" aria-label="Redes sociales">
