@@ -4,122 +4,207 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ingeniero Espacial · Links</title>
-  <meta name="description" content="Links oficiales de Ingeniero Espacial: YouTube, TikTok e Instagram." />
+  <meta name="description" content="Espacio explicado claro, sin humo y con rigor. Links oficiales: YouTube, TikTok, Instagram." />
+
+  <!-- OpenGraph / Twitter -->
+  <meta property="og:title" content="Ingeniero Espacial" />
+  <meta property="og:description" content="Espacio explicado claro, sin humo y con rigor. Links oficiales." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
     :root{
-      --card: rgba(10, 12, 18, 0.72);
-      --stroke: rgba(255,255,255,0.10);
+      --bg0:#050610;
+      --bg1:#0a0d1c;
+      --card: rgba(12, 14, 22, 0.66);
+      --stroke: rgba(255,255,255,0.12);
+      --stroke2: rgba(255,255,255,0.18);
       --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.70);
-      --btn: rgba(255,255,255,0.92);
-      --btnText: rgba(0,0,0,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --soft: rgba(255,255,255,0.08);
+      --soft2: rgba(255,255,255,0.10);
+      --cta: rgba(255,255,255,0.92);
+      --ctaText: rgba(0,0,0,0.9);
+      --radius: 18px;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      min-height:100svh;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
-      background: #070812;
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(141,88,255,0.18), transparent 55%),
+                  radial-gradient(900px 600px at 90% 20%, rgba(69,189,255,0.14), transparent 55%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
 
-    /* Fondo: imagen + overlay */
+    /* Background image layer */
     .bg{
-      position: fixed;
-      inset: 0;
+      position: fixed; inset:0; z-index:-4;
       background:
-        linear-gradient(180deg, rgba(6,7,14,0.75), rgba(6,7,14,0.92)),
+        linear-gradient(180deg, rgba(5,6,16,0.62), rgba(5,6,16,0.90)),
         url("assets/space-bg.jpg") center/cover no-repeat;
-      filter: saturate(1.1) contrast(1.05);
-      z-index:-2;
+      filter: saturate(1.1) contrast(1.06);
+      transform: scale(1.02);
     }
 
-    /* Satélite (SVG) flotando */
-    .sat{
-      position: fixed;
-      inset: 0;
-      z-index:-1;
+    /* Subtle grain for cinematic feel */
+    .grain{
+      position: fixed; inset:0; z-index:-3;
       pointer-events:none;
-      opacity: 0.35;
-      transform: translate3d(0,0,0);
+      opacity: .18;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+
+    /* Floating satellite */
+    .sat{
+      position: fixed; inset:0; z-index:-2;
+      pointer-events:none;
+      opacity: .38;
     }
     .sat svg{
       position:absolute;
-      right: -60px;
-      top: 90px;
-      width: min(520px, 92vw);
+      right: -80px;
+      top: 70px;
+      width: min(560px, 92vw);
       height:auto;
-      filter: drop-shadow(0 30px 60px rgba(0,0,0,0.55));
-      transform: rotate(-8deg);
+      filter: drop-shadow(0 40px 80px rgba(0,0,0,0.55));
+      transform: rotate(-10deg);
+      animation: drift 10s ease-in-out infinite;
+    }
+    @keyframes drift{
+      0%,100%{ transform: translateY(0) rotate(-10deg); }
+      50%{ transform: translateY(10px) rotate(-9deg); }
     }
 
     .wrap{
-      max-width: 720px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 42px 18px 60px;
-      display:flex;
-      justify-content:center;
+      padding: 48px 18px 64px;
     }
 
     .card{
-      width:100%;
       background: var(--card);
       border: 1px solid var(--stroke);
-      border-radius: 18px;
-      padding: 24px 18px 20px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+      border-radius: 22px;
+      padding: 22px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 24px 90px rgba(0,0,0,0.50);
     }
 
-    .top{
+    .hero{
       display:flex;
+      gap: 18px;
       align-items:center;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-    .avatar{
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.08);
+      padding: 18px;
+      border-radius: var(--radius);
+      background: radial-gradient(700px 220px at 20% 0%, rgba(141,88,255,0.18), transparent 50%),
+                  radial-gradient(500px 220px at 95% 20%, rgba(69,189,255,0.14), transparent 55%),
+                  rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .avatar{
+      width: 64px; height: 64px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.14);
+      display:flex; align-items:center; justify-content:center;
+      font-weight: 800; letter-spacing: .5px;
+      position:relative;
+      overflow:hidden;
+    }
+    .avatar:after{
+      content:"";
+      position:absolute; inset:-40px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.22), transparent 60%);
+      transform: rotate(20deg);
+    }
+
+    .title{
       display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      letter-spacing: 0.5px;
+      flex-direction:column;
+      gap: 6px;
+      min-width: 0;
     }
     h1{
-      font-size: 20px;
-      line-height: 1.15;
       margin:0;
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: .2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
     }
-    .subtitle{
-      margin: 4px 0 0;
-      font-size: 14px;
+    .tagline{
+      margin:0;
       color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .chips{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .chip{
+      font-size: 12px;
+      color: rgba(255,255,255,0.78);
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 760px){
+      .grid{ grid-template-columns: 1fr; }
+      .sat svg{ right:-140px; top: 40px; opacity:.32; }
+    }
+
+    .section{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 14px;
+    }
+    .section h2{
+      margin: 0 0 10px;
+      font-size: 13px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
     }
 
     .links{
-      margin-top: 16px;
       display:flex;
       flex-direction:column;
-      gap: 12px;
+      gap: 10px;
     }
+
     .btn{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 14px;
+      gap: 12px;
       width:100%;
-      padding: 14px 16px;
-      border-radius: 14px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      text-decoration:none;
+      color: var(--text);
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.10);
-      color: var(--text);
-      text-decoration:none;
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
     .btn:hover{
@@ -127,58 +212,154 @@
       background: rgba(255,255,255,0.09);
       border-color: rgba(255,255,255,0.16);
     }
-    .btn strong{font-size: 15px}
-    .btn span{font-size: 13px; color: var(--muted)}
-    .pill{
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: var(--btn);
-      color: var(--btnText);
-      font-size: 12px;
-      font-weight: 700;
+    .left{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .ico{
+      width: 40px; height: 40px;
+      border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      flex: 0 0 auto;
+    }
+    .label{
+      min-width:0;
+    }
+    .label strong{
+      display:block;
+      font-size: 15px;
+      line-height: 1.1;
+    }
+    .label span{
+      display:block;
+      font-size: 13px;
+      color: var(--muted);
       white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      margin-top: 3px;
     }
 
-    .footer{
-      margin-top: 16px;
+    .pill{
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: var(--cta);
+      color: var(--ctaText);
       font-size: 12px;
-      color: rgba(255,255,255,0.55);
+      font-weight: 800;
+      white-space:nowrap;
+      border: 0;
+    }
+
+    /* Featured block */
+    .featured{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+    }
+    .thumb{
+      width: 94px; height: 64px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .thumb img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .featText{
+      min-width:0;
+    }
+    .featText .t{
+      font-weight: 800;
+      margin:0;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+    .featText .d{
+      margin: 6px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .row{
+      display:flex;
+      gap: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    .ghost{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.85);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 13px;
+      cursor:pointer;
+    }
+    .ghost:hover{ background: rgba(255,255,255,0.09); }
+
+    .footer{
       display:flex;
       justify-content:space-between;
-      gap: 12px;
+      gap: 10px;
       flex-wrap:wrap;
+      margin-top: 14px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
     }
     .footer a{ color: rgba(255,255,255,0.70); text-decoration:none; }
     .footer a:hover{ text-decoration:underline; }
 
-    @media (max-width: 420px){
-      .sat svg{ right: -120px; top: 60px; opacity: 0.32; }
-      .avatar{ width:52px; height:52px; }
+    /* Toast */
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%);
+      background: rgba(10,12,18,0.78);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.92);
+      padding: 10px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+    }
+    .toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(-2px);
     }
   </style>
 </head>
+
 <body>
   <div class="bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <div class="sat" aria-hidden="true">
-    <!-- Satélite simple (SVG) para no depender de PNGs/licencias -->
+    <!-- satélite SVG (sin assets externos) -->
     <svg viewBox="0 0 900 520" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g opacity="0.95">
-        <!-- panel izquierdo -->
-        <rect x="60" y="210" width="240" height="100" rx="10" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.22)" />
+        <rect x="60" y="210" width="240" height="100" rx="12" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.22)" />
         <path d="M90 230H270M90 255H270M90 280H270" stroke="rgba(255,255,255,0.18)" />
-        <!-- panel derecho -->
-        <rect x="600" y="210" width="240" height="100" rx="10" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.22)" />
+        <rect x="600" y="210" width="240" height="100" rx="12" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.22)" />
         <path d="M630 230H810M630 255H810M630 280H810" stroke="rgba(255,255,255,0.18)" />
-
-        <!-- brazo -->
         <rect x="300" y="252" width="300" height="16" rx="8" fill="rgba(255,255,255,0.14)" />
-
-        <!-- cuerpo satélite -->
-        <rect x="392" y="180" width="116" height="160" rx="16" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.22)" />
+        <rect x="392" y="180" width="116" height="160" rx="18" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.22)" />
         <rect x="408" y="198" width="84" height="30" rx="10" fill="rgba(0,0,0,0.35)" stroke="rgba(255,255,255,0.18)"/>
-
-        <!-- antena -->
         <circle cx="450" cy="140" r="34" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.22)"/>
         <path d="M450 174V180" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
         <path d="M420 140C435 126 465 126 480 140" stroke="rgba(255,255,255,0.18)" stroke-width="4" stroke-linecap="round"/>
@@ -189,60 +370,132 @@
 
   <main class="wrap">
     <section class="card">
-      <div class="top">
-        <div class="avatar">IE</div>
-        <div>
+      <header class="hero">
+        <div class="avatar" aria-label="Avatar">IE</div>
+        <div class="title">
           <h1>Ingeniero Espacial</h1>
-          <p class="subtitle">Contenido de espacio explicado claro y sin humo.</p>
+          <p class="tagline">Espacio explicado claro y sin humo. Ingeniería real, curiosidades y misiones.</p>
+          <div class="chips" aria-label="Temas">
+            <span class="chip">🛰️ Satélites</span>
+            <span class="chip">🔬 Ciencia</span>
+            <span class="chip">⚙️ Tecnología</span>
+            <span class="chip">🌍 Misiones</span>
+          </div>
         </div>
-      </div>
+      </header>
 
-      <div class="links">
-        <a class="btn" href="https://www.youtube.com/@Ingeniero.Espacial" target="_blank" rel="noopener">
-          <div>
-            <strong>YouTube</strong><br/>
-            <span>@Ingeniero.Espacial</span>
+      <div class="grid">
+        <section class="section">
+          <h2>Links oficiales</h2>
+
+          <div class="links">
+            <a class="btn" href="https://www.youtube.com/@Ingeniero.Espacial" target="_blank" rel="noopener">
+              <div class="left">
+                <div class="ico" aria-hidden="true">▶️</div>
+                <div class="label">
+                  <strong>YouTube</strong>
+                  <span>@Ingeniero.Espacial</span>
+                </div>
+              </div>
+              <div class="pill">Ver vídeos</div>
+            </a>
+
+            <a class="btn" href="https://www.tiktok.com/@ingenieroespacial" target="_blank" rel="noopener">
+              <div class="left">
+                <div class="ico" aria-hidden="true">🎵</div>
+                <div class="label">
+                  <strong>TikTok</strong>
+                  <span>@ingenieroespacial</span>
+                </div>
+              </div>
+              <div class="pill">Abrir</div>
+            </a>
+
+            <a class="btn" href="https://www.instagram.com/ingeniero.espacial/" target="_blank" rel="noopener">
+              <div class="left">
+                <div class="ico" aria-hidden="true">📸</div>
+                <div class="label">
+                  <strong>Instagram</strong>
+                  <span>@ingeniero.espacial</span>
+                </div>
+              </div>
+              <div class="pill">Seguir</div>
+            </a>
           </div>
-          <div class="pill">Ver vídeos</div>
-        </a>
 
-        <a class="btn" href="https://www.tiktok.com/@ingenieroespacial" target="_blank" rel="noopener">
-          <div>
-            <strong>TikTok</strong><br/>
-            <span>@ingenieroespacial</span>
+          <div class="row">
+            <button class="ghost" id="copyBtn">🔗 Copiar link</button>
+            <button class="ghost" id="shareBtn">📤 Compartir</button>
           </div>
-          <div class="pill">Abrir</div>
-        </a>
+        </section>
 
-        <a class="btn" href="https://www.instagram.com/ingeniero.espacial/" target="_blank" rel="noopener">
-          <div>
-            <strong>Instagram</strong><br/>
-            <span>@ingeniero.espacial</span>
+        <aside class="section">
+          <h2>Destacado</h2>
+
+          <!-- OPCIONAL: si quieres añadir un “último vídeo”, mete thumbnail en assets/featured.jpg -->
+          <div class="featured">
+            <div class="thumb" aria-hidden="true">
+              <img src="assets/featured.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+            </div>
+            <div class="featText">
+              <p class="t">Último vídeo</p>
+              <p class="d">Si quieres meter un destacado, sube <b>assets/featured.jpg</b> y cambia el enlace de abajo.</p>
+            </div>
           </div>
-          <div class="pill">Seguir</div>
-        </a>
 
-        <!-- Opcional: añade más botones aquí -->
-        <!--
-        <a class="btn" href="https://tuweb.com" target="_blank" rel="noopener">
-          <div>
-            <strong>Web</strong><br/>
-            <span>tuweb.com</span>
+          <div class="row" style="margin-top:10px;">
+            <!-- Cambia este link al vídeo que quieras destacar -->
+            <a class="btn" style="padding:12px 12px" href="https://www.youtube.com/@Ingeniero.Espacial" target="_blank" rel="noopener">
+              <div class="left">
+                <div class="ico" aria-hidden="true">🚀</div>
+                <div class="label">
+                  <strong>Ver destacado</strong>
+                  <span>YouTube</span>
+                </div>
+              </div>
+              <div class="pill">Ir</div>
+            </a>
           </div>
-          <div class="pill">Entrar</div>
-        </a>
-        -->
-      </div>
 
-      <div class="footer">
-        <span>© <span id="y"></span> Ingeniero Espacial</span>
-        <a href="#" onclick="navigator.clipboard.writeText(window.location.href); return false;">Copiar link</a>
+          <div class="footer">
+            <span>© <span id="y"></span> Ingeniero Espacial</span>
+            <a href="https://www.instagram.com/ingeniero.espacial/" target="_blank" rel="noopener">Contacto</a>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
 
+  <div class="toast" id="toast">Copiado ✅</div>
+
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    const toast = document.getElementById('toast');
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(()=>toast.classList.remove('show'), 1300);
+    }
+
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(window.location.href);
+        showToast('Link copiado ✅');
+      }catch(e){
+        showToast('No se pudo copiar');
+      }
+    });
+
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      if (navigator.share){
+        try{
+          await navigator.share({ title: document.title, url: window.location.href });
+        }catch(e){ /* usuario canceló */ }
+      } else {
+        showToast('Comparte copiando el link');
+      }
+    });
   </script>
 </body>
 </html>
