@@ -35,7 +35,7 @@
       z-index:-2;
       background:
         linear-gradient(180deg,rgba(0,5,12,.02) 0%,rgba(0,5,12,.06) 42%,rgba(0,5,12,.18) 100%),
-        url("assets/space-bg.png") center top/cover no-repeat;
+        url("assets/space-bg.jpg") center top/cover no-repeat;
       transform:translateZ(0);
     }
 
@@ -262,28 +262,100 @@
     .social-link.substack svg{width:40px;height:40px}
 
     @media (max-width:560px){
-      .page{padding:64px 20px 74px}
-      .avatar-shell{width:148px}
-      h1{margin-top:28px;font-size:39px}
-      .bio{margin-top:18px;font-size:18px;max-width:330px}
-      .accent-line{width:118px;margin-top:28px;height:2px}
-      .links{margin-top:44px;gap:18px}
-      .main-link{
-        min-height:82px;
-        grid-template-columns:72px 1fr 72px;
-        padding:0 12px;
-        border-radius:20px;
+      .page{
+        padding:clamp(42px,12vw,64px) clamp(12px,5vw,20px) 64px;
       }
-      .main-link .link-icon{width:46px;height:46px}
-      .main-link .link-icon svg{width:38px;height:38px}
-      .main-link .linkedin-icon svg{width:39px;height:39px}
-      .main-link strong{font-size:27px}
-      .network-divider{margin-top:42px;width:56%}
-      .social-title{margin-top:28px;font-size:20px}
-      .socials{margin-top:22px;width:min(310px,92%);gap:16px}
-      .social-link{width:48px;height:48px}
-      .social-link svg{width:38px;height:38px}
+      .avatar-shell{width:clamp(118px,39vw,148px)}
+      h1{
+        margin-top:clamp(20px,7vw,28px);
+        font-size:clamp(28px,10.2vw,39px);
+        line-height:1.04;
+        letter-spacing:-.045em;
+        max-width:100%;
+        overflow-wrap:anywhere;
+      }
+      .bio{
+        margin-top:clamp(12px,4.5vw,18px);
+        font-size:clamp(15px,4.7vw,18px);
+        line-height:1.42;
+        max-width:min(330px,94vw);
+      }
+      .accent-line{
+        width:clamp(90px,31vw,118px);
+        margin-top:clamp(22px,7vw,28px);
+        height:2px;
+      }
+      .links{
+        margin-top:clamp(30px,11vw,44px);
+        gap:clamp(14px,4.5vw,18px);
+      }
+      .main-link{
+        min-height:clamp(70px,21vw,82px);
+        grid-template-columns:clamp(54px,18vw,72px) 1fr clamp(54px,18vw,72px);
+        padding:0 clamp(8px,3vw,12px);
+        border-radius:clamp(16px,5vw,20px);
+      }
+      .main-link .link-icon{
+        width:clamp(38px,12vw,46px);
+        height:clamp(38px,12vw,46px);
+      }
+      .main-link .link-icon svg{
+        width:clamp(31px,10vw,38px);
+        height:clamp(31px,10vw,38px);
+      }
+      .main-link .linkedin-icon svg{
+        width:clamp(32px,10.5vw,39px);
+        height:clamp(32px,10.5vw,39px);
+      }
+      .main-link strong{
+        font-size:clamp(21px,7.1vw,27px);
+        white-space:nowrap;
+      }
+      .network-divider{
+        margin-top:clamp(32px,11vw,42px);
+        width:56%;
+      }
+      .social-title{
+        margin-top:clamp(22px,7vw,28px);
+        font-size:clamp(17px,5.2vw,20px);
+      }
+      .socials{
+        margin-top:clamp(16px,5.7vw,22px);
+        width:min(310px,94%);
+        gap:clamp(8px,4vw,16px);
+      }
+      .social-link{
+        width:clamp(38px,12.5vw,48px);
+        height:clamp(38px,12.5vw,48px);
+      }
+      .social-link svg{
+        width:clamp(30px,10vw,38px);
+        height:clamp(30px,10vw,38px);
+      }
+      .social-link.substack svg{
+        width:clamp(28px,9vw,36px);
+        height:clamp(28px,9vw,36px);
+      }
       .space-bg{background-position:center top}
+    }
+
+    @media (max-width:390px){
+      .page{padding-left:12px;padding-right:12px}
+      h1{font-size:clamp(27px,9.5vw,35px)}
+      .bio{max-width:92vw}
+      .main-link{border-width:1.5px}
+      .main-link strong{font-size:clamp(20px,6.8vw,25px)}
+      .socials{width:min(280px,92%)}
+    }
+
+    @media (max-width:340px){
+      h1{font-size:28px}
+      .main-link{
+        grid-template-columns:48px 1fr 48px;
+        min-height:66px;
+      }
+      .main-link strong{font-size:20px}
+      .bio{font-size:14px}
     }
 
     @media (min-width:1000px){
