@@ -35,7 +35,7 @@
       z-index:-2;
       background:
         linear-gradient(180deg,rgba(0,5,12,.02) 0%,rgba(0,5,12,.06) 42%,rgba(0,5,12,.18) 100%),
-        url("assets/space-bg.png") center top/cover no-repeat;
+        url("assets/space-bg.jpg") center top/cover no-repeat;
       transform:translateZ(0);
     }
 
@@ -51,13 +51,16 @@
 
     .page{
       width:min(760px,100%);
+      height:100svh;
       min-height:100svh;
       margin:0 auto;
-      padding:clamp(72px,8vh,118px) 34px 88px;
+      padding:clamp(20px,4.5vh,54px) 34px clamp(18px,4vh,46px);
       display:flex;
       flex-direction:column;
       align-items:center;
+      justify-content:center;
       text-align:center;
+      overflow:hidden;
     }
 
     .avatar-shell{
@@ -84,7 +87,7 @@
     }
 
     h1{
-      margin:34px 0 0;
+      margin:clamp(12px,2.6vh,26px) 0 0;
       color:var(--cyan);
       font-size:clamp(38px,7vw,62px);
       line-height:1.03;
@@ -95,7 +98,7 @@
 
     .bio{
       max-width:610px;
-      margin:22px auto 0;
+      margin:clamp(8px,1.8vh,16px) auto 0;
       color:var(--white);
       font-size:clamp(18px,3.5vw,27px);
       line-height:1.45;
@@ -106,7 +109,7 @@
     .accent-line{
       width:170px;
       height:3px;
-      margin:34px auto 0;
+      margin:clamp(12px,2.4vh,24px) auto 0;
       border-radius:999px;
       background:var(--cyan);
       box-shadow:0 0 16px rgba(0,255,224,.75);
@@ -115,14 +118,14 @@
 
     .links{
       width:100%;
-      margin-top:54px;
+      margin-top:clamp(18px,3.6vh,36px);
       display:flex;
       flex-direction:column;
-      gap:22px;
+      gap:clamp(10px,1.8vh,18px);
     }
 
     .main-link{
-      min-height:102px;
+      min-height:clamp(66px,9.2vh,88px);
       width:100%;
       display:grid;
       grid-template-columns:104px 1fr 104px;
@@ -191,7 +194,7 @@
     .network-divider{
       width:min(360px,65%);
       height:2px;
-      margin:54px auto 0;
+      margin:clamp(18px,3.4vh,34px) auto 0;
       position:relative;
       background:linear-gradient(90deg,transparent,var(--cyan) 20%,var(--cyan) 80%,transparent);
       box-shadow:0 0 12px rgba(0,255,224,.32);
@@ -210,7 +213,7 @@
     }
 
     .social-title{
-      margin:36px 0 0;
+      margin:clamp(12px,2.2vh,22px) 0 0;
       font-size:clamp(20px,3.5vw,28px);
       font-weight:420;
       color:rgba(255,255,255,.96);
@@ -219,7 +222,7 @@
 
     .socials{
       width:min(420px,100%);
-      margin-top:26px;
+      margin-top:clamp(10px,1.8vh,18px);
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -263,11 +266,11 @@
 
     @media (max-width:560px){
       .page{
-        padding:clamp(42px,12vw,64px) clamp(12px,5vw,20px) 64px;
+        padding:clamp(14px,3.2vh,28px) clamp(12px,5vw,20px) clamp(12px,2.8vh,24px);
       }
       .avatar-shell{width:clamp(118px,39vw,148px)}
       h1{
-        margin-top:clamp(20px,7vw,28px);
+        margin-top:clamp(10px,2.4vh,20px);
         font-size:clamp(28px,10.2vw,39px);
         line-height:1.04;
         letter-spacing:-.045em;
@@ -275,22 +278,22 @@
         overflow-wrap:anywhere;
       }
       .bio{
-        margin-top:clamp(12px,4.5vw,18px);
+        margin-top:clamp(7px,1.5vh,12px);
         font-size:clamp(15px,4.7vw,18px);
         line-height:1.42;
         max-width:min(330px,94vw);
       }
       .accent-line{
         width:clamp(90px,31vw,118px);
-        margin-top:clamp(22px,7vw,28px);
+        margin-top:clamp(10px,2vh,18px);
         height:2px;
       }
       .links{
-        margin-top:clamp(30px,11vw,44px);
-        gap:clamp(14px,4.5vw,18px);
+        margin-top:clamp(14px,2.8vh,26px);
+        gap:clamp(8px,1.4vh,14px);
       }
       .main-link{
-        min-height:clamp(70px,21vw,82px);
+        min-height:clamp(58px,8.8vh,72px);
         grid-template-columns:clamp(54px,18vw,72px) 1fr clamp(54px,18vw,72px);
         padding:0 clamp(8px,3vw,12px);
         border-radius:clamp(16px,5vw,20px);
@@ -312,15 +315,15 @@
         white-space:nowrap;
       }
       .network-divider{
-        margin-top:clamp(32px,11vw,42px);
+        margin-top:clamp(14px,2.7vh,24px);
         width:56%;
       }
       .social-title{
-        margin-top:clamp(22px,7vw,28px);
+        margin-top:clamp(10px,2vh,18px);
         font-size:clamp(17px,5.2vw,20px);
       }
       .socials{
-        margin-top:clamp(16px,5.7vw,22px);
+        margin-top:clamp(8px,1.5vh,14px);
         width:min(310px,94%);
         gap:clamp(8px,4vw,16px);
       }
@@ -365,6 +368,46 @@
       .bio{font-size:22px}
       .main-link{min-height:88px;border-radius:23px}
       .main-link strong{font-size:32px}
+    }
+
+
+    /* Compactación vertical: garantiza que todo el contenido quepa en pantalla */
+    @media (max-height:760px){
+      .page{padding-top:12px;padding-bottom:12px}
+      .avatar-shell{width:clamp(96px,17vh,132px)}
+      h1{margin-top:10px;font-size:clamp(27px,5.2vh,38px)}
+      .bio{margin-top:7px;font-size:clamp(14px,2.45vh,18px);line-height:1.32}
+      .accent-line{margin-top:10px;width:100px}
+      .links{margin-top:14px;gap:9px}
+      .main-link{min-height:58px;border-radius:17px}
+      .main-link .link-icon{width:38px;height:38px}
+      .main-link .link-icon svg,.main-link .linkedin-icon svg{width:31px;height:31px}
+      .main-link strong{font-size:clamp(20px,3.7vh,27px)}
+      .network-divider{margin-top:14px}
+      .social-title{margin-top:10px;font-size:17px}
+      .socials{margin-top:8px}
+      .social-link{width:38px;height:38px}
+      .social-link svg{width:30px;height:30px}
+      .social-link.substack svg{width:29px;height:29px}
+    }
+
+    @media (max-height:640px){
+      .page{padding-top:8px;padding-bottom:8px}
+      .avatar-shell{width:92px;padding:3px}
+      h1{margin-top:7px;font-size:27px}
+      .bio{margin-top:5px;font-size:13px;line-height:1.25}
+      .accent-line{margin-top:7px;width:82px;height:1.5px}
+      .links{margin-top:9px;gap:7px}
+      .main-link{min-height:50px;border-radius:14px}
+      .main-link .link-icon{width:32px;height:32px}
+      .main-link .link-icon svg,.main-link .linkedin-icon svg{width:27px;height:27px}
+      .main-link strong{font-size:19px}
+      .network-divider{margin-top:9px}
+      .social-title{margin-top:7px;font-size:15px}
+      .socials{margin-top:5px}
+      .social-link{width:32px;height:32px}
+      .social-link svg{width:26px;height:26px}
+      .social-link.substack svg{width:25px;height:25px}
     }
 
     @media (prefers-reduced-motion:reduce){
