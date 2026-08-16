@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#020811" />
+  <title>Ingeniero Espacial · Links</title>
+  <meta name="description" content="Curiosidades del espacio contadas por un ingeniero de la ESA." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <style>
+    :root{
+      --cyan:#00ffe0;
+      --bg:#020811;
+      --white:#f5fbff;
+      --muted:rgba(245,251,255,.86);
+      --cyan-soft:rgba(0,255,224,.12);
+      --cyan-glow:rgba(0,255,224,.35);
+    }
+
+    *{box-sizing:border-box}
+    html,body{min-height:100%;margin:0}
+
+    body{
+      min-height:100svh;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--white);
+      background:var(--bg);
+      overflow-x:hidden;
+    }
+
+    .space-bg{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:
+        linear-gradient(180deg,rgba(0,5,12,.02) 0%,rgba(0,5,12,.06) 42%,rgba(0,5,12,.18) 100%),
+        url("assets/space-bg.png") center top/cover no-repeat;
+      transform:translateZ(0);
+    }
+
+    .space-bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 50% 42%,transparent 0 34%,rgba(0,4,10,.08) 60%,rgba(0,4,10,.35) 100%),
+        linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.02) 58%,rgba(0,0,0,.08));
+      pointer-events:none;
+    }
+
+    .page{
+      width:min(760px,100%);
+      min-height:100svh;
+      margin:0 auto;
+      padding:clamp(72px,8vh,118px) 34px 88px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+
+    .avatar-shell{
+      width:clamp(152px,23vw,206px);
+      aspect-ratio:1;
+      border-radius:50%;
+      padding:4px;
+      background:var(--cyan);
+      box-shadow:
+        0 0 0 1px rgba(0,255,224,.58),
+        0 0 18px rgba(0,255,224,.52),
+        0 0 44px rgba(0,255,224,.22);
+      flex:0 0 auto;
+    }
+
+    .avatar-shell img{
+      width:100%;
+      height:100%;
+      border-radius:50%;
+      display:block;
+      object-fit:cover;
+      object-position:center;
+      background:#04121d;
+    }
+
+    h1{
+      margin:34px 0 0;
+      color:var(--cyan);
+      font-size:clamp(38px,7vw,62px);
+      line-height:1.03;
+      font-weight:760;
+      letter-spacing:-.038em;
+      text-shadow:0 0 22px rgba(0,255,224,.22);
+    }
+
+    .bio{
+      max-width:610px;
+      margin:22px auto 0;
+      color:var(--white);
+      font-size:clamp(18px,3.5vw,27px);
+      line-height:1.45;
+      font-weight:430;
+      text-shadow:0 2px 18px rgba(0,0,0,.88);
+    }
+
+    .accent-line{
+      width:170px;
+      height:3px;
+      margin:34px auto 0;
+      border-radius:999px;
+      background:var(--cyan);
+      box-shadow:0 0 16px rgba(0,255,224,.75);
+      opacity:.95;
+    }
+
+    .links{
+      width:100%;
+      margin-top:54px;
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+    }
+
+    .main-link{
+      min-height:102px;
+      width:100%;
+      display:grid;
+      grid-template-columns:104px 1fr 104px;
+      align-items:center;
+      padding:0 20px;
+      border:2px solid var(--cyan);
+      border-radius:26px;
+      color:var(--cyan);
+      text-decoration:none;
+      background:rgba(0,8,18,.18);
+      box-shadow:
+        inset 0 0 26px rgba(0,255,224,.015),
+        0 0 0 1px rgba(0,255,224,.08),
+        0 0 22px rgba(0,255,224,.08);
+      backdrop-filter:blur(2px);
+      -webkit-backdrop-filter:blur(2px);
+      transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+    }
+
+    .main-link:hover{
+      transform:translateY(-3px);
+      background:rgba(0,255,224,.075);
+      box-shadow:
+        inset 0 0 30px rgba(0,255,224,.035),
+        0 0 28px rgba(0,255,224,.2);
+    }
+
+    .main-link:active{transform:translateY(0)}
+
+    .main-link .link-icon{
+      width:58px;
+      height:58px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      justify-self:center;
+      color:var(--cyan);
+    }
+
+    .main-link .link-icon svg{
+      width:47px;
+      height:47px;
+      display:block;
+      fill:none;
+      stroke:currentColor;
+      stroke-width:1.8;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .main-link .linkedin-icon svg{
+      fill:currentColor;
+      stroke:none;
+      width:48px;
+      height:48px;
+    }
+
+    .main-link strong{
+      grid-column:2;
+      font-size:clamp(26px,5vw,39px);
+      line-height:1;
+      font-weight:650;
+      letter-spacing:-.025em;
+    }
+
+    .network-divider{
+      width:min(360px,65%);
+      height:2px;
+      margin:54px auto 0;
+      position:relative;
+      background:linear-gradient(90deg,transparent,var(--cyan) 20%,var(--cyan) 80%,transparent);
+      box-shadow:0 0 12px rgba(0,255,224,.32);
+    }
+
+    .network-divider::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:50%;
+      width:12px;
+      height:12px;
+      background:var(--cyan);
+      transform:translate(-50%,-50%) rotate(45deg);
+      box-shadow:0 0 16px rgba(0,255,224,.7);
+    }
+
+    .social-title{
+      margin:36px 0 0;
+      font-size:clamp(20px,3.5vw,28px);
+      font-weight:420;
+      color:rgba(255,255,255,.96);
+      text-shadow:0 2px 15px rgba(0,0,0,.85);
+    }
+
+    .socials{
+      width:min(420px,100%);
+      margin-top:26px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .social-link{
+      width:58px;
+      height:58px;
+      color:var(--cyan);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      filter:drop-shadow(0 0 8px rgba(0,255,224,.15));
+      transition:transform .16s ease,filter .16s ease;
+    }
+
+    .social-link:hover{
+      transform:translateY(-3px) scale(1.05);
+      filter:drop-shadow(0 0 11px rgba(0,255,224,.55));
+    }
+
+    .social-link svg{
+      width:46px;
+      height:46px;
+      fill:currentColor;
+      display:block;
+    }
+
+    .social-link.instagram svg{
+      fill:none;
+      stroke:currentColor;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .social-link.linkedin svg{width:43px;height:43px}
+    .social-link.substack svg{width:40px;height:40px}
+
+    @media (max-width:560px){
+      .page{padding:64px 20px 74px}
+      .avatar-shell{width:148px}
+      h1{margin-top:28px;font-size:39px}
+      .bio{margin-top:18px;font-size:18px;max-width:330px}
+      .accent-line{width:118px;margin-top:28px;height:2px}
+      .links{margin-top:44px;gap:18px}
+      .main-link{
+        min-height:82px;
+        grid-template-columns:72px 1fr 72px;
+        padding:0 12px;
+        border-radius:20px;
+      }
+      .main-link .link-icon{width:46px;height:46px}
+      .main-link .link-icon svg{width:38px;height:38px}
+      .main-link .linkedin-icon svg{width:39px;height:39px}
+      .main-link strong{font-size:27px}
+      .network-divider{margin-top:42px;width:56%}
+      .social-title{margin-top:28px;font-size:20px}
+      .socials{margin-top:22px;width:min(310px,92%);gap:16px}
+      .social-link{width:48px;height:48px}
+      .social-link svg{width:38px;height:38px}
+      .space-bg{background-position:center top}
+    }
+
+    @media (min-width:1000px){
+      .page{padding-top:86px}
+      .avatar-shell{width:180px}
+      h1{font-size:51px}
+      .bio{font-size:22px}
+      .main-link{min-height:88px;border-radius:23px}
+      .main-link strong{font-size:32px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="space-bg" aria-hidden="true"></div>
+
+  <main class="page">
+    <div class="avatar-shell">
+      <img src="assets/perfil4.png" alt="Ingeniero Espacial" onerror="this.src='assets/profile-placeholder.svg'" />
+    </div>
+
+    <h1>@ingeniero.espacial</h1>
+
+    <p class="bio">
+      Curiosidades del espacio 🚀<br>
+      contadas por un ingeniero de la ESA.
+    </p>
+
+    <div class="accent-line" aria-hidden="true"></div>
+
+    <nav class="links" aria-label="Enlaces principales">
+      <a class="main-link" href="mailto:rg.juanpa@gmail.com" aria-label="Contáctame por email">
+        <span class="link-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="m4 7 8 6 8-6"></path>
+          </svg>
+        </span>
+        <strong>Contáctame</strong>
+      </a>
+
+      <a class="main-link" href="https://www.linkedin.com/in/juanpablorg/" target="_blank" rel="noopener" aria-label="Más sobre mí en LinkedIn">
+        <span class="link-icon linkedin-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M5.5 8.1H2V21h3.5V8.1ZM3.75 2A2.05 2.05 0 1 0 3.75 6.1 2.05 2.05 0 0 0 3.75 2ZM21 13.6c0-3.9-2.1-5.8-4.9-5.8-2.25 0-3.25 1.25-3.82 2.12V8.1H8.77V21h3.51v-6.4c0-1.68.32-3.3 2.4-3.3 2.05 0 2.08 1.92 2.08 3.4V21H21v-7.4Z"/>
+          </svg>
+        </span>
+        <strong>Más sobre mí</strong>
+      </a>
+    </nav>
+
+    <div class="network-divider" aria-hidden="true"></div>
+    <div class="social-title">Mis redes</div>
+
+    <nav class="socials" aria-label="Redes sociales">
+      <a class="social-link" href="https://www.tiktok.com/@ingenieroespacial" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M16.6 3c.48 2.38 1.84 3.8 4.4 4.53v3.8c-1.84.05-3.45-.51-4.4-1.13v6.24A6.56 6.56 0 1 1 10.04 9.9c.42 0 .83.04 1.22.11v3.87a2.73 2.73 0 1 0 1.5 2.56V3h3.84Z"/>
+        </svg>
+      </a>
+
+      <a class="social-link" href="https://www.youtube.com/@Ingeniero.Espacial" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M23.5 6.2a3 3 0 0 0-2.12-2.12C19.5 3.58 12 3.58 12 3.58s-7.5 0-9.38.5A3 3 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3 3 0 0 0 2.12 2.12c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3 3 0 0 0 2.12-2.12C24 15.92 24 12 24 12s0-3.92-.5-5.8ZM9.6 15.6V8.4l6.23 3.6L9.6 15.6Z"/>
+        </svg>
+      </a>
+
+      <a class="social-link instagram" href="https://www.instagram.com/ingeniero.espacial/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+
+      <a class="social-link substack" href="https://ingenieroespacial.substack.com/" target="_blank" rel="noopener" aria-label="Substack">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22.54 0H1.46v2.84h21.08V0ZM22.54 5.41H1.46v2.83h21.08V5.41ZM1.46 10.81V24L12 18.08 22.54 24V10.81H1.46Z"/>
+        </svg>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>
