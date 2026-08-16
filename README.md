@@ -1,29 +1,35 @@
 # 🚀 Ingeniero Espacial
 
-🛰️ El espacio explicado desde dentro.
+🛰️ **El espacio explicado desde dentro.**
 
-👨‍🚀 Más de 10 años trabajando como ingeniero en la ESA
-🌍 Satélites, misiones espaciales y tecnología que cambia el mundo
-🎥 Contenido claro, directo y fácil de entender
+👨‍🚀 Más de 10 años trabajando como ingeniero en la ESA  
+🌍 Satélites, misiones espaciales y tecnología espacial  
+🎥 Curiosidades del espacio
 
-🌌 ¿Qué encontrarás aquí?
+## 🌌 ¿Qué encontrarás aquí?
 
-✨ Cómo funcionan realmente los satélites
-✨ Qué hay dentro de una misión espacial
-✨ Curiosidades que casi nadie conoce
-✨ Ciencia explicada para que digas: “wow, no lo sabía”
+✨ Cómo funcionan realmente los satélites  
+✨ Qué hay detrás de una misión espacial  
+✨ Curiosidades que casi nadie conoce  
+✨ Ciencia y tecnología espacial explicadas desde la perspectiva de un ingeniero
 
-🔗 Sígueme aquí
+## 🔗 Sígueme
 
-🎬 YouTube
+🎬 **YouTube**  
 https://www.youtube.com/@Ingeniero.Espacial
 
-📱 TikTok
+📱 **TikTok**  
 https://www.tiktok.com/@ingenieroespacial
 
-📸 Instagram
+📸 **Instagram**  
 https://www.instagram.com/ingeniero.espacial/
 
-🛰️ Sobre esta página
+✍️ **Substack**  
+https://ingenieroespacial.substack.com/
 
-Este repositorio aloja mi página oficial de enlaces.
+💼 **LinkedIn**  
+https://www.linkedin.com/in/juanpablorg/
+
+## 🛰️ Sobre esta página
+
+Este repositorio aloja la página oficial de enlaces de **@ingeniero.espacial**.
